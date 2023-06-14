@@ -3,6 +3,7 @@ import Box from "./Box";
 import Sphere from "./Sphere";
 import { Sofa } from "../assets/3dModelsJSX/Sofa";
 import { Float, ContactShadows } from "@react-three/drei";
+import { RubberDuck } from "../assets/3dModelsJSX/RubberDuck";
 
 function TestSample3D() {
   const Controls = () => {
@@ -25,7 +26,10 @@ function TestSample3D() {
       {/* <Box geometry={<boxGeometry args={[1, 1, 1]} />}/> */}
       {/* <Sphere /> */}
       <Float speed={1.4} rotationIntensity={1.5} floatIntensity={2.3}>
-        <Sofa />
+        <Sofa position={[0, 0.5, -1]} />
+      </Float>
+      <Float speed={1.4} rotationIntensity={1.5} floatIntensity={2.3}>
+        <RubberDuck scale={4} position={[-2, 0.3, -1]} />
       </Float>
       <ContactShadows
         position={[0, -0.3, 0]}
