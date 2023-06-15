@@ -1,7 +1,7 @@
 import { useRef } from "react";
 // import { Mesh } from "three";
 import { Mesh } from "three/src/objects/Mesh.js";
-import React, { Component, FunctionComponent } from "react";
+import React from "react";
 import { useFrame } from "@react-three/fiber";
 
 type boxProps = {
