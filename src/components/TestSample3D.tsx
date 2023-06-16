@@ -4,6 +4,7 @@ import Sphere from "./Sphere";
 import { Sofa } from "../assets/3dModelsJSX/Sofa";
 import { Float, ContactShadows } from "@react-three/drei";
 import { RubberDuck } from "../assets/3dModelsJSX/RubberDuck";
+import TweakableBox from "./TweakableBox";
 
 function TestSample3D() {
   const Controls = () => {
@@ -25,7 +26,7 @@ function TestSample3D() {
       {/* <pointLight position={[-51, -5, -5]} /> */}
       {/* <Box geometry={<boxGeometry args={[1, 1, 1]} />}/> */}
       {/* <Sphere /> */}
-      <Float speed={1.4} rotationIntensity={1.5} floatIntensity={2.3}>
+      {/* <Float speed={1.4} rotationIntensity={1.5} floatIntensity={2.3}>
         <Sofa position={[0, 0.5, -1]} />
       </Float>
       <Float speed={1.4} rotationIntensity={1.5} floatIntensity={2.3}>
@@ -39,7 +40,8 @@ function TestSample3D() {
         far={10}
         // resolution={256}
         // color="green"
-      />
+      /> */}
+      {/* <TweakableBox /> */}
     </Canvas>
   );
 }

@@ -23,7 +23,7 @@ const Box: React.FunctionComponent<boxProps> = ({ geometry, wireFrame }) => {
   });
 
   return (
-    <mesh ref={boxRef}>
+    <mesh ref={boxRef} >
       {geometry}
       <meshStandardMaterial
         color={"red"}

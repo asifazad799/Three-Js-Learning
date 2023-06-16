@@ -1,9 +1,16 @@
-import React from 'react'
+import { folder, useControls } from "leva";
+import { Box } from "@react-three/drei";
 
 function TweakableBox() {
+  const { scale } = useControls("Box", {
+    transform: folder({ scale: 1 }),
+  });
+
   return (
-    <div>TweakableBox</div>
-  )
+    <Box scale={scale}>
+      <meshBasicMaterial />
+    </Box>
+  );
 }
 
-export default TweakableBox
+export default TweakableBox;
