@@ -1,10 +1,15 @@
 import { useRef } from "react";
 // import { Mesh } from "three";
 import { Mesh } from "three/src/objects/Mesh.js";
-
+import React from "react";
 import { useFrame } from "@react-three/fiber";
 
-function Box() {
+type boxProps = {
+  geometry?: any;
+  wireFrame?: boolean ;
+};
+
+const Box: React.FunctionComponent<boxProps> = ({ geometry, wireFrame }) => {
   const boxRef = useRef<Mesh>(null);
 
   useFrame(() => {
@@ -18,11 +23,14 @@ function Box() {
   });
 
   return (
-    <mesh ref={boxRef}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={"red"} />
+    <mesh ref={boxRef} >
+      {geometry}
+      <meshStandardMaterial
+        color={"red"}
+        wireframe={wireFrame ? wireFrame : false}
+      />
     </mesh>
   );
-}
+};
 
 export default Box;
