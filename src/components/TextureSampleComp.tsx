@@ -41,7 +41,7 @@ function TextureSampleComp() {
           {...terrainTextures}
           normalMap-encoding={LinearSRGBColorSpace}
           metalness={1}
-          metalnessMap={null}
+          metalnessMap={null} 
         />
       </Plane>
       ;
