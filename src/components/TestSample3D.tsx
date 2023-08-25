@@ -12,6 +12,7 @@ import {
 import { RubberDuck } from "../assets/3dModelsJSX/RubberDuck";
 import TweakableBox from "./TweakableBox";
 import TextureSampleComp from "./TextureSampleComp";
+import LightTest from "./LightTest";
 
 function TestSample3D() {
   // const Controls = () => {
@@ -29,9 +30,10 @@ function TestSample3D() {
 
   return (
     <Canvas camera={{ position: [0, 40, 35] }}>
-      {/* <ambientLight />
-      <pointLight  position={[5, 5, 0]} intensity={4} />
-      <OrbitControls /> */}
+      {/* <ambientLight /> */}
+      {/* <pointLight position={[5, 5, 0]} intensity={4} /> */}
+      <OrbitControls />
+      <LightTest />
       {/* <pointLight position={[-3, -3, 2]} /> */}
       {/* <axesHelper args={[10]} /> */}
       {/* <Controls /> */}
@@ -54,7 +56,7 @@ function TestSample3D() {
         // color="green"
       /> */}
       {/* <TweakableBox /> */}
-      <TextureSampleComp />
+      {/* <TextureSampleComp /> */}
     </Canvas>
   );
 }

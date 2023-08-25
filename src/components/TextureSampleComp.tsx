@@ -34,17 +34,16 @@ function TextureSampleComp() {
   return (
     <>
       <ambientLight />
-      <pointLight ref={lightRef} position={[15, 15, -10]} intensity={4} />
+      <pointLight ref={lightRef} position={[15, 25, -10]} intensity={2} />
       <OrbitControls />
-      <Plane args={[40, 40, 556, 556]} rotation-x={-Math.PI / 2}>
+      <Plane args={[40, 40, 106, 106]} rotation-x={-Math.PI / 2}>
         <meshStandardMaterial
           {...terrainTextures}
           normalMap-encoding={LinearSRGBColorSpace}
           metalness={1}
-          metalnessMap={null}
+          metalnessMap={null} 
         />
       </Plane>
-      ;
     </>
   );
 }
