@@ -1,4 +1,5 @@
 import {
+  ContactShadows,
   OrbitControls,
   Plane,
   TorusKnot,
@@ -14,19 +15,21 @@ import {
   DirectionalLightHelper,
   PointLight,
   PointLightHelper,
+  SpotLight,
+  SpotLightHelper,
 } from "three";
 // import '../assets/matcap/matcap.png'
 
 function LightTest() {
   const matcap = useTexture("/matcap/matcap.png");
 
-  const basicRef = useRef<Mesh>();
-  const standardRef = useRef<Mesh>();
-  const lambertRef = useRef<Mesh>();
-  const matCapRef = useRef<Mesh>();
-  const directoinalLightRef = useRef<PointLight>();
+  const basicRef = useRef<Mesh>(null!);
+  const standardRef = useRef<Mesh>(null!);
+  const lambertRef = useRef<Mesh>(null!);
+  const matCapRef = useRef<Mesh>(null!);
+  const spotLightRef = useRef<SpotLight>(null!);
 
-  useHelper(directoinalLightRef, PointLightHelper, 1, "red");
+  useHelper(spotLightRef, SpotLightHelper, "red");
 
   useFrame(() => {
     [basicRef, standardRef, lambertRef, matCapRef].forEach((ref) => {
@@ -36,9 +39,14 @@ function LightTest() {
     });
   });
 
-  const { intensity, x } = useControls({
-    intensity: { value: 1, min: 0, max: 5 },
-    x: { value: 0, min: -5, max: 5 },
+  // const { intensity, x } = useControls({
+  //   intensity: { value: 1, min: 0, max: 5 },
+  //   x: { value: 0, min: -5, max: 5 },
+  // });
+
+  const { distance, intensity } = useControls({
+    distance: { value: 5, min: 1, max: 10 },
+    intensity: { value: 5, min: 0, max: 15 },
   });
 
   return (
@@ -53,12 +61,19 @@ function LightTest() {
         position={[x, 5, 0]}
         intensity={intensity}
       /> */}
-      <pointLight
+      {/* <pointLight
         ref={directoinalLightRef}
         position={[x, 6, 0]}
         intensity={intensity}
+      /> */}
+      <spotLight
+        ref={spotLightRef}
+        position={[0, 5, 0]}
+        distance={distance}
+        intensity={intensity}
       />
-      <Plane scale={10} rotation-x={-Math.PI / 2} position-y={-2} />
+
+      {/* <Plane scale={10} rotation-x={-Math.PI / 2} position-y={-2} /> */}
       <TorusKnot ref={basicRef} position={[-2, 0, -2]}>
         <meshBasicMaterial color={"red"} />
       </TorusKnot>
@@ -71,6 +86,15 @@ function LightTest() {
       <TorusKnot ref={matCapRef} position={[2, 0, 2]}>
         <meshMatcapMaterial matcap={matcap} />
       </TorusKnot>
+      <ContactShadows
+        position={[0, -2, 0]}
+        // opacity={1}
+        scale={20}
+        blur={2.5}
+        far={10}
+        // resolution={256}
+        // color="green"
+      />
       {/* </Canvas> */}
     </>
   );
